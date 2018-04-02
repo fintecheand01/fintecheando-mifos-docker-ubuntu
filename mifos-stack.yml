@@ -3,14 +3,18 @@ version: '3.1'
 
 services:
 
-  db:
-    image: mariadb
+  mariadb:
+    image: com.mx.fintecheando.mariadb.10
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_DATABASE: mifosplatform-tenants
+#volumes:
+# - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
 
-  adminer:
-    image: docker.io/victorromero/com.mx.fintecheando.mifosx.17.07.01
+  mifosx:
+    image: com.mx.fintecheando.mifosx.17.07.01
     restart: always
     ports:
       - 8080:8080
+      - 8443:8443

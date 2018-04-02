@@ -1,9 +1,21 @@
 # Fintecheando - Mifos X 17.07.01
 
-1. Build the image
+1. Build the MIFOS X image
 
 ```bash
 $ docker build -t com.mx.fintecheando.mifosx.17.07.01 .
+```
+
+2. Build the MariaDB image
+
+```bash
+$ docker build -t com.mx.fintecheando.mariadb.mifosx.17.07.01 .
+```
+
+3. Build the MySQL image (optional)
+
+```bash
+$ docker build -t com.mx.fintecheando.mysql.mifosx.17.07.01 .
 ```
 
 2. List the image 
@@ -13,10 +25,10 @@ $ docker image ls | grep mifosx.17.07.01
 com.mx.fintecheando.mifosx.17.07.01                      latest                 8a90b0d8aa11        9 minutes ago       753MB
 ```
 
-3. Run the image
+3. Run the Docker images using Compose
 
 ```bash
-$ docker run -p 8080:8080 com.mx.fintecheando.mifosx.17.07.01
+$ docker-compose -f mifos-stack.yml up
 ```
 
 4. Verify the running container
