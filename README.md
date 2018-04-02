@@ -39,4 +39,5 @@ Reference
 
 * https://mifosforge.jira.com/wiki/spaces/docs/pages/74711072/Mifos+X+Installation+on+Linux+-+Ubuntu+Server 
 * https://github.com/dmitryint/docker-mifosx
-
+* https://github.com/docker-library/docs/tree/master/mariadb
+* https://docs.docker.com/docker-cloud/builds/push-images/
