@@ -1,2 +1,2 @@
 create database 'mifosplatform-tenants';
-create database 'mifostenant-DEFAULT';
+create database 'mifostenant-default';

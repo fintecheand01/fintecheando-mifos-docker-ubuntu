@@ -8,6 +8,8 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_USER: mifosx
+      MYSQL_PASSWORD: mysql
       MYSQL_DATABASE: mifosplatform-tenants
 #volumes:
 # - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d

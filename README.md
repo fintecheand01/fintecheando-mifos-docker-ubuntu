@@ -18,33 +18,33 @@ $ docker build -t com.mx.fintecheando.mariadb.mifosx.17.07.01 .
 $ docker build -t com.mx.fintecheando.mysql.mifosx.17.07.01 .
 ```
 
-2. List the image 
+4. List the image 
 
 ```bash
 $ docker image ls | grep mifosx.17.07.01
 com.mx.fintecheando.mifosx.17.07.01                      latest                 8a90b0d8aa11        9 minutes ago       753MB
 ```
 
-3. Run the Docker images using Compose
+5. Run the Docker images using Compose
 
 ```bash
 $ docker-compose -f mifos-stack.yml up
 ```
 
-4. Verify the running container
+6. Verify the running container
 
 ```bash
 $ docker container ls
 ```
 
-5. Login to Mifos using the Web UI with these credentials:
+7. Login to Mifos using the Web UI with these credentials:
 
 username: mifos
 password: password
 
-https://localhost:8080
+https://localhost:8080 (insecure)
 
-https://localhost:8443
+https://localhost:8443 (secure, but this is a self signed certificate and you will have a warning in your web explorer, just ignore it and continue)
 
 
 Reference 
