@@ -25,6 +25,15 @@ $ docker run -p 8080:8080 com.mx.fintecheando.mifosx.17.07.01
 $ docker container ls
 ```
 
+5. Login to Mifos using the Web UI with these credentials:
+
+username: mifos
+password: password
+
+https://localhost:8080
+
+https://localhost:8443
+
 
 Reference 
 
