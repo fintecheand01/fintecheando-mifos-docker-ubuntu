@@ -24,3 +24,10 @@ $ docker run -p 8080:8080 com.mx.fintecheando.mifosx.17.07.01
 ```bash
 $ docker container ls
 ```
+
+
+Reference 
+
+* https://mifosforge.jira.com/wiki/spaces/docs/pages/74711072/Mifos+X+Installation+on+Linux+-+Ubuntu+Server 
+* https://github.com/dmitryint/docker-mifosx
+
