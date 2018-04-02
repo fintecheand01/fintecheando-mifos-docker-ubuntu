@@ -1,7 +1,4 @@
-# fintecheando-mifos-docker-ubuntu
-
-# fincore-docker
-FinCORE - Docker
+# Fintecheando - Mifos X 17.07.01
 
 1. Build the image
 
