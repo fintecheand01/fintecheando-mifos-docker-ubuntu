@@ -1,4 +1,4 @@
-# Fintecheando - Mifos X 18.03.01
+# Docker - Mifos X 18.03.01
 
 1. Build the MIFOS X image
 
