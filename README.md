@@ -42,10 +42,11 @@ https://localhost:8443/community-app/#/ (secure web access, but this is a self s
 
 
 7. As note if you have any issue with the volumes and entry points remove the volumes (be careful, with this we are removing all of them, because it is running in our local DEV, don't do this in Production)
-
+```bash
 $ docker stop $(docker ps -a -q)
 $ docker rm $(docker ps -a -q)
 $ docker volume rm $(docker volume ls -q)
+```
 
 Reference 
 
