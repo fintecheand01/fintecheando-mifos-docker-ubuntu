@@ -1,6 +1,9 @@
 FROM tomcat:jre8
 
 ADD ./server.xml /usr/local/tomcat/conf/server.xml
+
+ADD ./fineract-provider.war /usr/local/tomcat/webapps/fineract-provider.war
+
 ADD ./entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh
@@ -16,15 +19,13 @@ RUN mkdir -p /app /docker-entrypoint-initdb.d /root/.mifosx \
 	&& cd /app \
 	&& wget http://tenet.dl.sourceforge.net/project/mifos/Mifos%20X/mifosplatform-18.03.01.RELEASE.zip \
 	&& unzip mifosplatform-18.03.01.RELEASE.zip \
-	&& mv fineractplatform-18.03.01.RELEASE/fineract-provider.war /usr/local/tomcat/webapps/ \
 	&& mv fineractplatform-18.03.01.RELEASE/apps/community-app /usr/local/tomcat/webapps/ \
-	&& mv fineractplatform-18.03.01.RELEASE/database/mifospltaform-tenants-first-time-install.sql /docker-entrypoint-initdb.d/ \
 	&& mv fineractplatform-18.03.01.RELEASE/pentahoReports /root/.mifosx \
-	&& sed -i '1s/^/USE mifosplatform-tenants;\n/' /docker-entrypoint-initdb.d/mifospltaform-tenants-first-time-install.sql \
 	&& wget http://central.maven.org/maven2/org/drizzle/jdbc/drizzle-jdbc/1.4/drizzle-jdbc-1.4.jar \
 	&& mv drizzle-jdbc-1.4.jar /usr/local/tomcat/lib \
 	&& cd / \
 	&& rm -rf /app
 
 VOLUME /docker-entrypoint-initdb.d
+
 ENTRYPOINT /entrypoint.sh
