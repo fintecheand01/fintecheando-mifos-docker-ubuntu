@@ -3,14 +3,21 @@ version: '3.1'
 
 services:
 
-  db-server:
-    image: com.mx.fintecheando.mariadb.mifosx.18.03.01
+  sms-server:
+    image: fintecheando/com.mx.fintecheando.activemq.mifosx.18.03.01
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: mysql
+      ACTIVEMQ_CONFIG_MINMEMORY: 512
+      ACTIVEMQ_CONFIG_MAXMEMORY: 1024
+      
+  db-server:
+    image: fintecheando/com.mx.fintecheando.mariadb.mifosx.18.03.01
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql      
 
   mifosx:
-    image: com.mx.fintecheando.mifosx.18.03.01
+    image: fintecheando/com.mx.fintecheando.mifosx.18.03.01
     restart: always
     ports:
       - 8443:8443
