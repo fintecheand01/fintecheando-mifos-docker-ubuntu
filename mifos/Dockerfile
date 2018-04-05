@@ -15,7 +15,7 @@ RUN mkdir -p /run/mysqld \
 RUN mkdir -p /app /docker-entrypoint-initdb.d /root/.mifosx \
 	&& cd /app \
 	&& wget http://tenet.dl.sourceforge.net/project/mifos/Mifos%20X/mifosplatform-18.03.01.RELEASE.zip \
-	&& unzip fineractplatform-18.03.01.RELEASE.zip \
+	&& unzip mifosplatform-18.03.01.RELEASE.zip \
 	&& mv fineractplatform-18.03.01.RELEASE/fineract-provider.war /usr/local/tomcat/webapps/ \
 	&& mv fineractplatform-18.03.01.RELEASE/apps/community-app /usr/local/tomcat/webapps/ \
 	&& mv fineractplatform-18.03.01.RELEASE/database/mifospltaform-tenants-first-time-install.sql /docker-entrypoint-initdb.d/ \
