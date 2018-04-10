@@ -1,0 +1,37 @@
+version: "2.1"
+
+networks:
+  app-tier:
+    driver: bridge
+
+services:
+  mifosx:
+    image: fintecheando/com.mx.fintecheando.mifosx.18.03.01
+    restart: always
+    ports:
+      - 8443:8443
+    networks:
+      - app-tier
+    depends_on:
+      db-server:
+        condition: service_healthy  
+  db-server:
+    image: fintecheando/com.mx.fintecheando.mariadb.mifosx.18.03.01
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+    healthcheck:
+      test:  mysqladmin --user=root --password=mysql ping -h localhost
+      interval: 5s
+      retries: 20
+    networks:
+      - app-tier  
+  sms-server:
+    image: fintecheando/com.mx.fintecheando.activemq.mifosx.18.03.01
+    restart: always
+    environment:
+      ACTIVEMQ_CONFIG_MINMEMORY: 512
+      ACTIVEMQ_CONFIG_MAXMEMORY: 1024
+    networks:
+      - app-tier    
+  
