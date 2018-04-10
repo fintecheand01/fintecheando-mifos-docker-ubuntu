@@ -14,7 +14,9 @@ services:
       - app-tier
     depends_on:
       db-server:
-        condition: service_healthy  
+        condition: service_healthy
+      sms-server:
+        condition: service_healthy    
   db-server:
     image: fintecheando/com.mx.fintecheando.mariadb.mifosx.18.03.01
     restart: always
@@ -32,6 +34,10 @@ services:
     environment:
       ACTIVEMQ_CONFIG_MINMEMORY: 512
       ACTIVEMQ_CONFIG_MAXMEMORY: 1024
+    healthcheck:
+      test:  curl -u admin:admin -s http://localhost:8161/admin
+      interval: 5s
+      retries: 20  
     networks:
       - app-tier    
   
