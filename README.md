@@ -3,7 +3,7 @@
 1. Run Mifos X pulling Docker images.
 
 ```bash
-$ docker-compose -f mifos-stack.yml up
+$ docker-compose up
 ```
 
 # Or
