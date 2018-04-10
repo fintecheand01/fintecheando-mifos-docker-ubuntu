@@ -1,19 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "fincore.fullname" . }}
+  name: {{ template "fullname" . }}
   labels:
-    app: {{ template "fincore.name" . }}
-    chart: {{ template "fincore.chart" . }}
-    release: {{ .Release.Name }}
-    heritage: {{ .Release.Service }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
 spec:
   type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
-      protocol: TCP
-      name: http
+  - port: {{ .Values.service.externalPort }}
+    targetPort: {{ .Values.service.internalPort }}
+    protocol: TCP
+    name: {{ .Values.service.name }}
   selector:
-    app: {{ template "fincore.name" . }}
-    release: {{ .Release.Name }}
+    app: {{ template "fullname" . }}

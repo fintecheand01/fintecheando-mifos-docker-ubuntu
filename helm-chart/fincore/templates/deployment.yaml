@@ -1,51 +1,32 @@
-apiVersion: apps/v1beta2
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: {{ template "fincore.fullname" . }}
+  name: {{ template "fullname" . }}
   labels:
-    app: {{ template "fincore.name" . }}
-    chart: {{ template "fincore.chart" . }}
-    release: {{ .Release.Name }}
-    heritage: {{ .Release.Service }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
 spec:
   replicas: {{ .Values.replicaCount }}
-  selector:
-    matchLabels:
-      app: {{ template "fincore.name" . }}
-      release: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ template "fincore.name" . }}
-        release: {{ .Release.Name }}
+        app: {{ template "fullname" . }}
     spec:
       containers:
-        - name: {{ .Chart.Name }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
-          ports:
-            - name: http
-              containerPort: 80
-              protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /
-              port: http
-          readinessProbe:
-            httpGet:
-              path: /
-              port: http
-          resources:
-{{ toYaml .Values.resources | indent 12 }}
-    {{- with .Values.nodeSelector }}
-      nodeSelector:
-{{ toYaml . | indent 8 }}
-    {{- end }}
-    {{- with .Values.affinity }}
-      affinity:
-{{ toYaml . | indent 8 }}
-    {{- end }}
-    {{- with .Values.tolerations }}
-      tolerations:
-{{ toYaml . | indent 8 }}
-    {{- end }}
+      - name: {{ .Chart.Name }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+        - name: https
+          containerPort: {{ .Values.service.internalPort }}
+        livenessProbe:
+          httpGet:
+            path: /community-app
+            port: https
+          initialDelaySeconds: 120
+          timeoutSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /community-app
+            port: https
+          initialDelaySeconds: 30
+          timeoutSeconds: 1
