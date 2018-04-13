@@ -13,11 +13,11 @@ services:
     networks:
       - app-tier
     depends_on:
-      db-server:
+      mifos-db-server:
         condition: service_healthy
-      sms-server:
+      mifos-sms-server:
         condition: service_healthy    
-  db-server:
+  mifos-db-server:
     image: fintecheando/com.mx.fintecheando.mariadb.mifosx.18.03.01
     restart: always
     environment:
@@ -28,7 +28,7 @@ services:
       retries: 20
     networks:
       - app-tier  
-  sms-server:
+  mifos-sms-server:
     image: fintecheando/com.mx.fintecheando.activemq.mifosx.18.03.01
     restart: always
     environment:

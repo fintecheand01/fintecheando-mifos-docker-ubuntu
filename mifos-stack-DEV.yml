@@ -3,14 +3,14 @@ version: '3.1'
 
 services:
 
-  sms-server:
+  mifos-sms-server:
     image: com.mx.fintecheando.activemq.mifosx.18.03.01
     restart: always
     environment:
       ACTIVEMQ_CONFIG_MINMEMORY: 512
       ACTIVEMQ_CONFIG_MAXMEMORY: 1024
       
-  db-server:
+  mifos-db-server:
     image: com.mx.fintecheando.mariadb.mifosx.18.03.01
     restart: always
     environment:
