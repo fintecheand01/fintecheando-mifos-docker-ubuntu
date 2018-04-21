@@ -3,16 +3,7 @@ version: "2.2"
 networks:
   fincore:
     driver: bridge
-services:
-  mifos-web-server:    
-    image: com.mx.fintecheando.nginx.mifosx.18.03.01
-    restart: always    
-    ports:
-      - 80:80
-    environment:
-      - NGINX_PORT=80
-    networks:
-      - fincore
+services:  
   mifos-app-server:
     image: com.mx.fintecheando.mifosx.18.03.01
     restart: always
