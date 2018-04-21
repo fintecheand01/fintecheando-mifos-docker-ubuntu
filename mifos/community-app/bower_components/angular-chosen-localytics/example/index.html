@@ -1,0 +1,144 @@
+<html ng-app="chosenExampleApp">
+<head>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+
+  <script src="../dist/angular-chosen.min.js"></script>
+  <script src="index.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css" />
+  <link rel="stylesheet" type="text/css" href="../chosen-spinner.css" />
+  <style>
+    select.localytics-chosen {
+      display: block !important;
+      position:absolute;
+      clip:rect(0,0,0,0);
+      height: 29px;
+    }
+    .border-red {
+      border: 1px solid red;
+    }
+  </style>
+</head>
+<body ng-controller="IndexCtrl">
+  <h1>Chosen Directive Example Usage</h1>
+  <h2>Chosen with a promise: {{foo | json}}</h2>
+  <select
+    chosen
+    multiple
+    allow-single-deselect="true"
+    placeholder-text-multiple="'Choose Your Own Adventure'"
+    no-results-text="'Tough luck'"
+    ng-model="foo"
+    ng-options="value for value in optionsFromQuery"
+    style="width:200px;">
+    <option value=""></option>
+  </select>
+
+  <h2>Chosen with a promised hash: {{baz | json}}</h2>
+  <select
+    chosen
+    allow-single-deselect="true"
+    placeholder-text-single="'Choose Your Own Adventure'"
+    no-results-text="'Tough luck'"
+    ng-model="baz"
+    ng-options="value for (key,value) in optionsFromQueryAsHash"
+    style="width:200px;">
+    <option value=""></option>
+  </select>
+
+  <h2>Chosen with static options: {{ bar }}</h2>
+  <select chosen disable-search="true" ng-model="bar">
+    <option>Hi</option>
+    <option>This is fun</option>
+    <option>I like Chosen so much</option>
+    <option>I also like bunny rabbits</option>
+    <option value=""></option>
+  </select>
+
+  <h2>Passing options in as a hash: {{ woo }}</h2>
+  <select
+    ng-model="woo"
+    chosen="directiveOptions"
+    ng-options="value for value in optionsFromQuery"
+    style="width:200px;">
+    <option value=""></option>
+  </select>
+
+  <h2>Disabling the element with a message when the collection is empty: {{ whatever }}</h2>
+  <input type="checkbox" ng-model="emptyCollection" /> Empty?
+  <select
+    chosen
+    ng-model="whatever"
+    no-results-text="'Sorry no options for you'"
+    ng-options="value for value in emptyOptions"
+    style="width:200px;">
+    <option value=""></option>
+  </select>
+
+  <h2>Changing the ngModel externally: {{ myPets }}</h2>
+  <select
+    multiple
+    ng-model="myPets"
+    ng-options="value as label for (value, label) in pets"
+    chosen
+    style="width:200px;">
+  </select>
+
+  <h2>Disabling the selection:</h2>
+  <label for="disabled">Disabled</label>
+  <input id="disabled" type="checkbox" ng-model="disabled">
+  <br>
+  <select chosen disable-search="true" ng-model="somemodel" ng-disabled="disabled">
+    <option>Great</option>
+    <option>fun</option>
+    <option>Great fun .. indeed</option>
+      <option value=""></option>
+  </select>
+
+  <h2>Form validation</h2>
+  <p>Shows error after user selects nothing (works with Angular 1.3+, uses $touched + $invalid)</p>
+  <form name="form">
+    <select chosen disable-search="true" ng-model="somefun" name="fun" required>
+      <option></option>
+      <option>Great</option>
+      <option>fun</option>
+      <option>Great fun .. indeed</option>
+    </select>
+    <span ng-if="form.fun.$invalid && form.fun.$touched">
+      Error: {{form.fun.$error}}
+    </span>
+    <select disable-search="true" ng-model="somefun" name="fun" required>
+      <option></option>
+      <option>Great</option>
+      <option>fun</option>
+      <option>Great fun .. indeed</option>
+    </select>
+    <br>
+    <input type="submit" />
+  </form>
+
+
+  <h2>#179 - inherit-select-class inside ng-if:</h2>
+  <label for="ngIfInherit">Ng If {{ngIfInherit}}</label>
+  <input id="ngIfInherit" type="checkbox" value="1" ng-model="ngIfInherit">
+  <br>
+  <div>
+    <select ng-if="ngIfInherit" multiple inherit-select-classes="true" class="border-red" chosen ng-model="myPets"
+    ng-options="value as label for (value, label) in pets" style="width:200px;">
+      <option value=""></option>
+    </select>
+  </div>
+
+  <h2>#59 - Don't scroll to top when selecting multiple items with ctrl</h2>
+  <div>
+    <select multiple chosen  ng-model="state" ng-options="s for s in states" style="width:200px;">
+      <option value=""></option>
+    </select>
+  </div>
+
+</body>
+
+</html>

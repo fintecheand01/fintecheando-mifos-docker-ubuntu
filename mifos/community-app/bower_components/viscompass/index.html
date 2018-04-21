@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Visrec Demo</title>
+
+  <!-- Twitter Bootstrap CSS library -->
+  <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap-2.0.min.css"> -->
+
+  <!-- LessCSS stylesheet files -->
+  <link rel="stylesheet/less" type="text/css" href="css/main.less">
+  <script src="lib/less-1.2.0.min.js" type="text/javascript"></script>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <!-- RequireJS config for external libs. Requirejs loaded at end of body -->
+
+  <script src="lib/d3.js" type="text/javascript"></script>
+  <script src="lib/lodash.min.js" type="text/javascript"></script>
+  <script src="lib/topojson.js" type="text/javascript"></script>
+  <script src="lib/clusterfck.js" type="text/javascript"></script>
+  <script src="bower_components/vega-lite/vega-lite.js" type="text/javascript"></script>
+  <script src="/vega-lite/lib/vega.js" type="text/javascript"></script>
+  <script src="lib/vega.js" type="text/javascript"></script>
+  <script src="visrec.js" type="text/javascript"></script>
+</head>
+
+<body>
+  <div id="ctrl">
+    <div class="ctrlgrp">
+      <h2>Data Fields</h2>
+      <div class="desc">
+        Please select data fields.
+      </div>
+      <div id="datacols"></div>
+    </div>
+
+    <!-- <div class="ctrlgrp">
+      <div class="toggle pull-right">
+        <a id="toggle-presets" href="#">Show/Hide</a>
+      </div>
+      <h2>Presets</h2>
+      <div id="presets" class="hide"></div>
+    </div> -->
+    <div class="ctrlgrp">
+      <div class="toggle pull-right">
+        <a id="toggle-config" href="#">Show/Hide</a>
+      </div>
+      <h2>Configs</h2>
+      <div id="config"></div>
+    </div>
+  </div>
+
+  <!-- <div id="proj-container">
+    <h2>Projection Variations</h2>
+    <div class="desc">
+      Displaying the best representation for each data variation of the selected projections.
+    </div>
+    <div id="aggr"></div>
+  </div> -->
+
+  <div id="aggr-container">
+    <h2>Transformations Variations</h2>
+    <div class="desc">
+      Displaying the best representation for each data variation of the selected projections.
+    </div>
+
+    <div id="aggr"></div>
+  </div>
+
+  <div id="vis-container">
+    <h2>Encodings Variations</h2>
+    <div class="desc">
+      Displaying clusters of representations for the selected data variation.
+      Each row shows a similar cluster.
+    </div>
+    <div id="selected-fields" class="datafields"></div>
+    <div id="vis"></div>
+  </div>
+
+  <script src="demo/vrdemo.js"></script>
+
+  <!-- RequireJS referencing scripts/main.js -->
+  <!-- <script src="src/lib/require.js" data-main="src/index.js"></script> -->
+  <!-- <script src="src/lib/bootstrap.min.js" type="text/javascript"></script> -->
+</body>
+</html>

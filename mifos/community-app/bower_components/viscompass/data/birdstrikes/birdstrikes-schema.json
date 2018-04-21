@@ -1,0 +1,72 @@
+[{
+  "key": "OPERATOR",
+  "field_name": "Aircraft: Airline/Operator",
+  "enabled": true,
+  "data_type": "categorical"
+}, {
+  "key": "ATYPE",
+  "field_name": "Aircraft: Make/Model",
+  "data_type": "categorical"
+}, {
+  "key": "AIRPORT",
+  "field_name": "Airport: Name",
+  "data_type": "categorical"
+}, {
+  "key": "Effect_Amount of damage",
+  "field_name": "Effect: Amount of damage",
+  "data_type": "categorical"
+}, {
+  "key": "INCIDENT_DATE",
+  "field_name": "Flight Date",
+  "data_type": "datetime"
+}, {
+  "key": "FAAREGION",
+  "field_name": "Location: FAA Region",
+  "data_type": "categorical",
+  "disabled": true
+}, {
+  "key": "Origin_State_Code_(copy)",
+  "field_name": "Origin State",
+  "data_type": "geographic"
+}, {
+  "key": "PHASE_OF_FLT",
+  "field_name": "When: Phase of flight",
+  "data_type": "categorical"
+}, {
+  "key": "TIME_OF_DAY",
+  "field_name": "When: Time of day",
+  "data_type": "categorical"
+}, {
+  "key": "SIZE",
+  "field_name": "Wildlife: Size",
+  "data_type": "categorical"
+}, {
+  "key": "SPECIES",
+  "field_name": "Wildlife: Species",
+  "data_type": "categorical"
+}, {
+  "key": "AOS",
+  "field_name": "Cost: Aircraft time out of Service",
+  "disabled": true,
+  "data_type": "quantitative"
+}, {
+  "key": "Cost_Other_inflation adj",
+  "field_name": "Cost: Other",
+  "data_type": "quantitative"
+}, {
+  "key": "Cost__Repairs_(adj)",
+  "field_name": "Cost: Repair",
+  "data_type": "quantitative"
+}, {
+  "key": "Cost__Total_$",
+  "field_name": "Cost: Total $",
+  "data_type": "quantitative"
+}, {
+  "key": "SPEED",
+  "field_name": "Speed (IAS) in knots",
+  "data_type": "quantitative"
+}, {
+  "key": "Number_of_Records",
+  "field_name": "Number of Strikes",
+  "data_type": "count"
+}]
