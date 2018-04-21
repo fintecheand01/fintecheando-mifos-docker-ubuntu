@@ -1065,11 +1065,11 @@ CREATE TABLE IF NOT EXISTS `m_appuser` (
 -- Dumping data for table mifostenant-reference.m_appuser: ~5 rows (approximately)
 /*!40000 ALTER TABLE `m_appuser` DISABLE KEYS */;
 INSERT INTO `m_appuser` (`id`, `is_deleted`, `office_id`, `staff_id`, `username`, `firstname`, `lastname`, `password`, `email`, `firsttime_login_remaining`, `nonexpired`, `nonlocked`, `nonexpired_credentials`, `enabled`, `last_time_password_updated`, `password_never_expires`, `is_self_service_user`) VALUES
-	(1, 0, 1, NULL, 'mifos', 'App', 'Administrator', '5787039480429368bf94732aacc771cd0a3ea02bcf504ffe1185ab94213bc63a', 'demomfi@mifos.org', b'0', b'1', b'1', b'1', b'1', '2014-03-07', 0, b'0'),
+	(1, 0, 1, NULL, 'fincore', 'App', 'Administrator', '5787039480429368bf94732aacc771cd0a3ea02bcf504ffe1185ab94213bc63a', 'demomfi@fintecheando.mx', b'0', b'1', b'1', b'1', b'1', '2014-03-07', 0, b'0'),
 	(2, 0, 1, NULL, 'adama', 'Adam', 'A', '08a5c6ee6e7361aa153b4c8620d31bcedef514238a69c0f30f05fe460663cbc6', 'adama@123.com', b'0', b'1', b'1', b'1', b'1', '2014-03-07', 0, b'0'),
 	(4, 0, 2, NULL, 'benb', 'Ben', 'B', '19d327dc34e2f7b889b571ad9651355e8cce87493611847c70fabf1fcfa914c8', 'benb@123.com', b'0', b'1', b'1', b'1', b'1', '2014-03-07', 0, b'0'),
 	(5, 0, 3, NULL, 'janej', 'Jane', 'J', 'f37ddcab2b9cfb015d94becdda719361ce13df943058cbf3130db468c288acb9', 'janej@123.com', b'0', b'1', b'1', b'1', b'1', '2014-03-07', 0, b'0'),
-	(6, 0, 1, NULL, 'system', 'system', 'system', '5787039480429368bf94732aacc771cd0a3ea02bcf504ffe1185ab94213bc63a', 'demomfi@mifos.org', b'0', b'1', b'1', b'1', b'1', '2014-03-07', 0, b'0');
+	(6, 0, 1, NULL, 'system', 'system', 'system', '5787039480429368bf94732aacc771cd0a3ea02bcf504ffe1185ab94213bc63a', 'demomfi@fintecheando.mx', b'0', b'1', b'1', b'1', b'1', '2014-03-07', 0, b'0');
 /*!40000 ALTER TABLE `m_appuser` ENABLE KEYS */;
 
 -- Dumping structure for table mifostenant-reference.m_appuser_previous_password
@@ -3374,8 +3374,8 @@ CREATE TABLE IF NOT EXISTS `m_office` (
 /*!40000 ALTER TABLE `m_office` DISABLE KEYS */;
 INSERT INTO `m_office` (`id`, `parent_id`, `hierarchy`, `external_id`, `name`, `opening_date`) VALUES
 	(1, NULL, '.', '1', 'Head Office', '2009-01-01'),
-	(2, 1, '.2.', NULL, 'Manila', '2010-01-01'),
-	(3, 1, '.3.', NULL, 'Pasay', '2010-02-08');
+	(2, 1, '.2.', NULL, 'Merida', '2010-01-01'),
+	(3, 1, '.3.', NULL, 'Guaymas', '2010-02-08');
 /*!40000 ALTER TABLE `m_office` ENABLE KEYS */;
 
 -- Dumping structure for table mifostenant-reference.m_office_transaction
@@ -4342,7 +4342,7 @@ INSERT INTO `m_portfolio_command_source` (`id`, `action_name`, `entity_name`, `o
 	(1, 'CREATE', 'STAFF', 1, NULL, NULL, NULL, NULL, '/staff/template', 1, NULL, '{"isLoanOfficer":true,"officeId":1,"firstname":"Aliya","lastname":"A"}', 1, '2014-03-07 19:10:05', NULL, NULL, 1, NULL, NULL, NULL, NULL),
 	(2, 'CREATE', 'USER', 1, NULL, NULL, NULL, NULL, '/users/template', 2, NULL, '{"sendPasswordToEmail":true,"officeId":1,"username":"adama","firstname":"Adam","lastname":"A","email":"adama@123.com","roles":["1"]}', 1, '2014-03-07 19:19:31', NULL, NULL, 1, NULL, NULL, NULL, NULL),
 	(3, 'CREATE', 'CLIENT', 1, NULL, 1, NULL, NULL, '/clients/template', 1, NULL, '{"officeId":1,"staffId":1,"firstname":"Smith","lastname":"R","active":true,"locale":"en","dateFormat":"dd MMMM yyyy","activationDate":"07 March 2014","submittedOnDate":"01 January 2010","savingsProductId":null}', 1, '2014-03-07 19:23:36', NULL, NULL, 1, NULL, NULL, NULL, NULL),
-	(4, 'CREATE', 'OFFICE', 2, NULL, NULL, NULL, NULL, '/offices/template', 2, NULL, '{"parentId":1,"name":"Manila","locale":"en","dateFormat":"dd MMMM yyyy","openingDate":"01 January 2010"}', 1, '2014-03-07 19:24:51', NULL, NULL, 1, NULL, NULL, NULL, NULL),
+	(4, 'CREATE', 'OFFICE', 2, NULL, NULL, NULL, NULL, '/offices/template', 2, NULL, '{"parentId":1,"name":"Merida","locale":"en","dateFormat":"dd MMMM yyyy","openingDate":"01 January 2010"}', 1, '2014-03-07 19:24:51', NULL, NULL, 1, NULL, NULL, NULL, NULL),
 	(5, 'CREATE', 'USER', 2, NULL, NULL, NULL, NULL, '/users/template', 4, NULL, '{"sendPasswordToEmail":true,"officeId":2,"username":"benb","firstname":"Ben","lastname":"B","email":"benb@123.com","roles":["1"]}', 1, '2014-03-07 19:26:26', NULL, NULL, 1, NULL, NULL, NULL, NULL),
 	(6, 'CREATE', 'STAFF', 2, NULL, NULL, NULL, NULL, '/staff/template', 2, NULL, '{"isLoanOfficer":true,"officeId":2,"firstname":"Mary","lastname":"M"}', 1, '2014-03-07 19:27:47', NULL, NULL, 1, NULL, NULL, NULL, NULL),
 	(7, 'CREATE', 'CENTER', 2, 1, NULL, NULL, NULL, '/centers/template', 1, NULL, '{"officeId":2,"staffId":2,"active":true,"name":"Jimmy","activationDate":"07 March 2014","submittedOnDate":"02 January 2010","locale":"en","dateFormat":"dd MMMM yyyy"}', 1, '2014-03-07 19:32:33', NULL, NULL, 1, NULL, NULL, NULL, NULL),
@@ -4361,7 +4361,7 @@ INSERT INTO `m_portfolio_command_source` (`id`, `action_name`, `entity_name`, `o
 	(20, 'CREATE', 'CLIENT', 2, 4, 7, NULL, NULL, '/clients/template', 7, NULL, '{"staffId":"2","firstname":"Allen","lastname":"E","active":true,"activationDate":"04 January 2010","dateFormat":"dd MMMM yyyy","locale":"en","groupId":"4","officeId":"2"}', 1, '2014-03-07 20:02:37', NULL, NULL, 1, NULL, NULL, NULL, NULL),
 	(21, 'UPDATE', 'CLIENT', 2, NULL, 7, NULL, NULL, '/clients/7', 7, NULL, '{"firstname":"Scott","lastname":"C"}', 1, '2014-03-07 20:04:17', NULL, NULL, 1, NULL, NULL, NULL, NULL),
 	(22, 'CREATE', 'CLIENT', 2, 4, 8, NULL, NULL, '/clients/template', 8, NULL, '{"staffId":"2","firstname":"Robinson","lastname":"R","active":true,"activationDate":"04 January 2010","dateFormat":"dd MMMM yyyy","locale":"en","groupId":"4","officeId":"2"}', 1, '2014-03-07 20:05:31', NULL, NULL, 1, NULL, NULL, NULL, NULL),
-	(23, 'CREATE', 'OFFICE', 3, NULL, NULL, NULL, NULL, '/offices/template', 3, NULL, '{"parentId":1,"name":"Pasay","locale":"en","dateFormat":"dd MMMM yyyy","openingDate":"08 February 2010"}', 1, '2014-03-07 20:06:22', NULL, NULL, 1, NULL, NULL, NULL, NULL),
+	(23, 'CREATE', 'OFFICE', 3, NULL, NULL, NULL, NULL, '/offices/template', 3, NULL, '{"parentId":1,"name":"Guaymas","locale":"en","dateFormat":"dd MMMM yyyy","openingDate":"08 February 2010"}', 1, '2014-03-07 20:06:22', NULL, NULL, 1, NULL, NULL, NULL, NULL),
 	(24, 'CREATE', 'USER', 1, NULL, NULL, NULL, NULL, '/users/template', 5, NULL, '{"sendPasswordToEmail":true,"officeId":1,"username":"janej","firstname":"Jane","lastname":"J","email":"janej@123.com","roles":["1"]}', 1, '2014-03-07 20:07:48', NULL, NULL, 1, NULL, NULL, NULL, NULL),
 	(25, 'CREATE', 'STAFF', 3, NULL, NULL, NULL, NULL, '/staff/template', 3, NULL, '{"isLoanOfficer":true,"officeId":3,"firstname":"John","lastname":"K"}', 1, '2014-03-07 20:08:28', NULL, NULL, 1, NULL, NULL, NULL, NULL),
 	(26, 'CREATE', 'FUND', NULL, NULL, NULL, NULL, NULL, '/funds/template', 1, NULL, '{"name":"Loan from Central Bank"}', 1, '2014-03-10 10:11:50', NULL, NULL, 1, NULL, NULL, NULL, NULL),

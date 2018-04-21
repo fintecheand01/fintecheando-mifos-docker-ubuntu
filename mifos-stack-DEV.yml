@@ -1,23 +1,50 @@
-# Use root/mysql as user/password credentials
-version: '3.1'
+version: "2.2"
 
+networks:
+  fincore:
+    driver: bridge
 services:
-
+  mifos-web-server:    
+    image: com.mx.fintecheando.nginx.mifosx.18.03.01
+    restart: always    
+    ports:
+      - 80:80
+    environment:
+      - NGINX_PORT=80
+    networks:
+      - fincore
+  mifos-app-server:
+    image: com.mx.fintecheando.mifosx.18.03.01
+    restart: always
+    ports:
+      - 8443:8443
+    networks:
+      - fincore
+    depends_on:
+      mifos-db-server:
+        condition: service_healthy
+      mifos-sms-server:
+        condition: service_healthy    
+  mifos-db-server:
+    image: com.mx.fintecheando.mariadb.mifosx.18.03.01
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+    healthcheck:
+      test:  mysqladmin --user=root --password=mysql ping -h localhost
+      interval: 5s
+      retries: 20
+    networks:
+      - fincore  
   mifos-sms-server:
     image: com.mx.fintecheando.activemq.mifosx.18.03.01
     restart: always
     environment:
       ACTIVEMQ_CONFIG_MINMEMORY: 512
       ACTIVEMQ_CONFIG_MAXMEMORY: 1024
-      
-  mifos-db-server:
-    image: com.mx.fintecheando.mariadb.mifosx.18.03.01
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: mysql      
-
-  mifosx:
-    image: com.mx.fintecheando.mifosx.18.03.01
-    restart: always
-    ports:
-      - 8443:8443
+    healthcheck:
+      test:  curl -u admin:admin -s http://localhost:8161/admin
+      interval: 5s
+      retries: 20  
+    networks:
+      - fincore
