@@ -1,19 +1,14 @@
-FROM tomcat:jre8
+FROM tomcat:8.5.30-jre8-alpine
+
+RUN apk add --no-cache mysql-client
 
 ADD ./server.xml /usr/local/tomcat/conf/server.xml
 
 ADD ./fineract-provider.war /usr/local/tomcat/webapps/fineract-provider.war
 
-ADD ./entrypoint.sh /entrypoint.sh
+ADD ./community-app/ /usr/local/tomcat/webapps/community-app
 
-RUN chmod +x /entrypoint.sh
-
-RUN apt-get update \
-	&& apt-get install -y mysql-client \
-	&& apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-RUN mkdir -p /run/mysqld \
-	&& chown 999 /run/mysqld
+ADD ./test/ /usr/local/tomcat/webapps/test/ 
 
 RUN mkdir -p /app /docker-entrypoint-initdb.d /root/.mifosx \
 	&& cd /app \
@@ -24,16 +19,13 @@ RUN mkdir -p /app /docker-entrypoint-initdb.d /root/.mifosx \
 	&& mv drizzle-jdbc-1.4.jar /usr/local/tomcat/lib \
 	&& cd / \
 	&& rm -rf /app
-	
-ADD ./community-app.zip /usr/local/tomcat/webapps/community-app.zip 
 
-RUN	cd /usr/local/tomcat/webapps \
-	&& unzip community-app.zip \
-	&& mv /usr/local/tomcat/webapps/app	/usr/local/tomcat/webapps/community-app \
-	&& rm -Rf /usr/local/tomcat/webapps/community-app.zip  \
-	&& ls -lrt  /usr/local/tomcat/webapps/community-app/
+ADD ./entrypoint.sh /entrypoint.sh
 
-ADD ./test/ /usr/local/tomcat/webapps/test/ 
+RUN chmod +x /entrypoint.sh
+
+RUN mkdir -p /run/mysqld \
+	&& chown 999 /run/mysqld
 
 VOLUME /docker-entrypoint-initdb.d
 
