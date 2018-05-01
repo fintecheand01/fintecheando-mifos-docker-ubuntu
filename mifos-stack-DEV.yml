@@ -9,6 +9,7 @@ services:
     restart: always
     ports:
       - 8443:8443
+      - 8080:8080
     networks:
       - fincore
     depends_on:
