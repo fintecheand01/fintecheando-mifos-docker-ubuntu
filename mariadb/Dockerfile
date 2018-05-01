@@ -1,4 +1,4 @@
-FROM mariadb:10
+FROM mariadb:5
 
 RUN apt-get update \
 	&& apt-get install -y wget unzip \

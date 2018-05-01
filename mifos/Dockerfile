@@ -10,7 +10,7 @@ ADD ./community-app/ /usr/local/tomcat/webapps/community-app
 
 ADD ./test/ /usr/local/tomcat/webapps/test/ 
 
-RUN mkdir -p /app /docker-entrypoint-initdb.d /root/.mifosx \
+RUN mkdir -p /app .mifosx /root/.mifosx \
 	&& cd /app \
 	&& wget http://tenet.dl.sourceforge.net/project/mifos/Mifos%20X/mifosplatform-18.03.01.RELEASE.zip \
 	&& unzip mifosplatform-18.03.01.RELEASE.zip \
@@ -27,6 +27,6 @@ RUN chmod +x /entrypoint.sh
 RUN mkdir -p /run/mysqld \
 	&& chown 999 /run/mysqld
 
-VOLUME /docker-entrypoint-initdb.d
+#VOLUME /docker-entrypoint-initdb.d
 
 ENTRYPOINT /entrypoint.sh

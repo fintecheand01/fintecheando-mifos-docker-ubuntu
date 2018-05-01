@@ -208,7 +208,7 @@
                 location.path('/search/' + searchString).search({exactMatch: exactMatch, resource: scope.currentScope.value});
 
             };
-            scope.text = '<span><a href="http://fintecheando.mx/">FinCore</a>.</span>';
+            scope.text = '<span>FinCORE</span>';
 
             scope.logout = function () {
                 $rootScope.$broadcast("OnUserPreLogout");

@@ -3,7 +3,6 @@ version: "2.2"
 networks:
   app-tier:
     driver: bridge
-
 services:
   mifosx:
     image: fintecheando/com.mx.fintecheando.mifosx.18.03.01

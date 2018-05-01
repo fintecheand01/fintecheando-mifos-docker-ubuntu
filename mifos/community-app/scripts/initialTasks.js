@@ -6,7 +6,7 @@
         var host = "";
         var portNumber = "";
         //accessing from openmf server
-        if (mainLink.hostname.indexOf('localhost') >= 0) {
+        if (mainLink.hostname.indexOf('openmf.org') >= 0) {
             var hostname = window.location.hostname;
             console.log('hostname---' + hostname);
             domains = hostname.split('.');
@@ -21,7 +21,7 @@
                 ResourceFactoryProvider.setTenantIdenetifier(domains[0]);
                 console.log("other than demo server", domains[0]);
             }
-            host = "https://" + "localhost" + ":8443";//mainLink.hostname;
+            host = "https://" + mainLink.hostname;
             console.log('hostname from mainLink = ', host);
         }
         //accessing from a file system or other servers
@@ -66,8 +66,8 @@
             suffix: '.json'
         });
 
-        $translateProvider.preferredLanguage('es');
-        $translateProvider.fallbackLanguage('es');
+        $translateProvider.preferredLanguage('en');
+        $translateProvider.fallbackLanguage('en');
         //Timeout settings.
         $idleProvider.idleDuration(IDLE_DURATION); //Idle time 
         $idleProvider.warningDuration(WARN_DURATION); //warning time(sec)
