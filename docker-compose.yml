@@ -17,7 +17,7 @@ services:
       mifos-sms-server:
         condition: service_healthy    
   mifos-db-server:
-    image: fintecheando/com.mx.fintecheando.mariadb.mifosx.18.03.01
+    image: fintecheando/com.mx.fintecheando.mysql.mifosx.18.03.01
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: mysql
