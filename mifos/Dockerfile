@@ -27,6 +27,7 @@ RUN chmod +x /entrypoint.sh
 RUN mkdir -p /run/mysqld \
 	&& chown 999 /run/mysqld
 
+RUN ls -lrt /usr/local/tomcat/webapps/
 #VOLUME /docker-entrypoint-initdb.d
 
 ENTRYPOINT /entrypoint.sh

@@ -17,6 +17,8 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Install stompy
+RUN pip install --upgrade pip 
+
 RUN pip install stomp.py
 
 # Lauch app install
