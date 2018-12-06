@@ -31,13 +31,13 @@ $ docker build -t com.mx.fintecheando.activemq.mifosx.18.03.01 .
 $ docker build -t com.mx.fintecheando.activemq.nginx.18.03.01 .
 ```
 
-4. Run the Docker images using Compose
+5. Run the Docker images using Compose
 
 ```bash
 $ docker-compose -f mifos-stack-DEV.yml up
 ```
 
-5. Verify the running containers
+6. Verify the running containers
 
 ```bash
 $ docker ps | grep mifosx.18.03.01
@@ -46,7 +46,7 @@ $ docker ps | grep mifosx.18.03.01
 3a4f14d027d2        fintecheando/com.mx.fintecheando.activemq.mifosx.18.03.01   "/app/run.sh"            41 minutes ago      Up 41 minutes       1883/tcp, 5672/tcp, 8161/tcp, 61613-61614/tcp, 61616/tcp   fintecheandomifosdockerubuntu_sms-server_1
 ```
 
-6. Login to Mifos using the Web UI with these credentials:
+7. Login to Mifos using the Web UI with these credentials:
 
 username: mifos
 password: password
@@ -54,7 +54,7 @@ password: password
 https://localhost:8443/community-app/#/ (secure web access, but this is a self signed certificate and you will have a warning in your web explorer, just ignore it and continue)
 
 
-7. As note if you have any issue with the volumes and entry points remove the volumes (be careful, with this we are removing all of them, because it is running in our local DEV, don't do this in Production)
+8. As note if you have any issue with the volumes and entry points remove the volumes (be careful, with this we are removing all of them, because it is running in our local DEV, don't do this in Production)
 ```bash
 $ docker stop $(docker ps -a -q)
 $ docker rm $(docker ps -a -q)
