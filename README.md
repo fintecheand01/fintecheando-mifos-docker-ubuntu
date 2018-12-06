@@ -28,7 +28,7 @@ $ docker build -t com.mx.fintecheando.activemq.mifosx.18.03.01 .
 4. Build the Web Server Nginx image
 
 ```bash
-$ docker build -t com.mx.fintecheando.activemq.nginx.18.03.01 .
+$ docker build -t com.mx.fintecheando.nginx.mifosx.18.03.01 .
 ```
 
 5. Run the Docker images using Compose
