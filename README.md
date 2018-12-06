@@ -11,7 +11,7 @@ $ docker-compose up
 1. Build the MIFOS X image
 
 ```bash
-$ docker build -t com.mx.fintecheando.mifosx.18.03.01 .
+$ docker build -t com.mx.fintecheando.tomcat.mifosx.18.03.01 .
 ```
 
 2. Build the MySQL image 
