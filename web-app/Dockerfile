@@ -22,8 +22,11 @@ RUN $(npm bin)/ng build --prod
 
 FROM nginx:1.13.3-alpine
 
-## Copy our default nginx config
-COPY nginx/default.conf /etc/nginx/conf.d/
+## Copy our default Nginx config
+COPY ./default.conf /etc/nginx/conf.d/
+
+## Copy our default Tomcat config
+COPY ./tomcat-basic.conf /etc/nginx/conf.d/
 
 ## Remove default nginx website
 RUN rm -rf /usr/share/nginx/html/*
