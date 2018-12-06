@@ -4,8 +4,19 @@ networks:
   fincore:
     driver: bridge
 services:  
+  mifos-web-server:
+    image: com.mx.fintecheando.nginx.mifosx.18.03.01
+    restart: always
+    ports:
+      - 8443:443
+      - 8080:80    
+    networks:
+      - fincore
+    depends_on:
+      mifos-app-server:
+        condition: service_healthy
   mifos-app-server:
-    image: com.mx.fintecheando.mifosx.18.03.01
+    image: com.mx.fintecheando.tomcat.mifosx.18.03.01
     restart: always
     ports:
       - 8443:8443
@@ -16,7 +27,11 @@ services:
       mifos-db-server:
         condition: service_healthy
       mifos-sms-server:
-        condition: service_healthy    
+        condition: service_healthy
+    healthcheck:
+      test:  curl -sS 127.0.0.1:8080 || exit 1
+      interval: 5s
+      retries: 20        
   mifos-db-server:
     image: com.mx.fintecheando.mysql.mifosx.18.03.01
     restart: always
