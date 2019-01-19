@@ -8,8 +8,8 @@ services:
     image: com.mx.fintecheando.nginx.mifosx.18.03.01
     restart: always
     ports:
-      - 8443:443
-      - 8080:80    
+      - 443:8443
+      - 80:8080    
     networks:
       - fincore
     depends_on:
@@ -29,7 +29,7 @@ services:
       mifos-sms-server:
         condition: service_healthy
     healthcheck:
-      test:  curl -sS 127.0.0.1:8080 || exit 1
+      test: curl -kfsS https://127.0.0.1:8443 | grep 'Tomcat' | wc -l 
       interval: 5s
       retries: 20        
   mifos-db-server:
