@@ -1,28 +1,17 @@
 version: "2.2"
 
 networks:
-  fincore:
+  mifos:
     driver: bridge
 services:  
-  mifos-web-server:
-    image: com.mx.fintecheando.nginx.mifosx.18.03.01
-    restart: always
-    ports:
-      - 443:8443
-      - 80:8080    
-    networks:
-      - fincore
-    depends_on:
-      mifos-app-server:
-        condition: service_healthy
   mifos-app-server:
-    image: com.mx.fintecheando.tomcat.mifosx.18.03.01
+    image: com.mx.fintecheando.tomcat.mifosx.19.07
     restart: always
     ports:
       - 8443:8443
       - 8080:8080
     networks:
-      - fincore
+      - mifos
     depends_on:
       mifos-db-server:
         condition: service_healthy
@@ -33,8 +22,10 @@ services:
       interval: 5s
       retries: 20        
   mifos-db-server:
-    image: com.mx.fintecheando.mysql.mifosx.18.03.01
+    image: com.mx.fintecheando.mysql.mifosx.19.07
     restart: always
+    ports:
+      - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: mysql
     healthcheck:
@@ -42,9 +33,9 @@ services:
       interval: 5s
       retries: 20
     networks:
-      - fincore  
+      - mifos  
   mifos-sms-server:
-    image: com.mx.fintecheando.activemq.mifosx.18.03.01
+    image: com.mx.fintecheando.activemq.mifosx.19.07
     restart: always
     environment:
       ACTIVEMQ_CONFIG_MINMEMORY: 512
@@ -54,4 +45,4 @@ services:
       interval: 5s
       retries: 20  
     networks:
-      - fincore
+      - mifos

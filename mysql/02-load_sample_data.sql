@@ -1065,7 +1065,7 @@ CREATE TABLE IF NOT EXISTS `m_appuser` (
 -- Dumping data for table mifostenant-reference.m_appuser: ~5 rows (approximately)
 /*!40000 ALTER TABLE `m_appuser` DISABLE KEYS */;
 INSERT INTO `m_appuser` (`id`, `is_deleted`, `office_id`, `staff_id`, `username`, `firstname`, `lastname`, `password`, `email`, `firsttime_login_remaining`, `nonexpired`, `nonlocked`, `nonexpired_credentials`, `enabled`, `last_time_password_updated`, `password_never_expires`, `is_self_service_user`) VALUES
-	(1, 0, 1, NULL, 'fincore', 'App', 'Administrator', '5787039480429368bf94732aacc771cd0a3ea02bcf504ffe1185ab94213bc63a', 'demomfi@fintecheando.mx', b'0', b'1', b'1', b'1', b'1', '2014-03-07', 0, b'0'),
+	(1, 0, 1, NULL, 'mifos', 'App', 'Administrator', '5787039480429368bf94732aacc771cd0a3ea02bcf504ffe1185ab94213bc63a', 'demomfi@fintecheando.mx', b'0', b'1', b'1', b'1', b'1', '2014-03-07', 0, b'0'),
 	(2, 0, 1, NULL, 'adama', 'Adam', 'A', '08a5c6ee6e7361aa153b4c8620d31bcedef514238a69c0f30f05fe460663cbc6', 'adama@123.com', b'0', b'1', b'1', b'1', b'1', '2014-03-07', 0, b'0'),
 	(4, 0, 2, NULL, 'benb', 'Ben', 'B', '19d327dc34e2f7b889b571ad9651355e8cce87493611847c70fabf1fcfa914c8', 'benb@123.com', b'0', b'1', b'1', b'1', b'1', '2014-03-07', 0, b'0'),
 	(5, 0, 3, NULL, 'janej', 'Jane', 'J', 'f37ddcab2b9cfb015d94becdda719361ce13df943058cbf3130db468c288acb9', 'janej@123.com', b'0', b'1', b'1', b'1', b'1', '2014-03-07', 0, b'0'),
