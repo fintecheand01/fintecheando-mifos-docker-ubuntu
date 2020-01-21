@@ -25,25 +25,20 @@ $ docker build -t com.mx.fintecheando.mysql.mifosx.19.07 .
 ```bash
 $ docker build -t com.mx.fintecheando.activemq.mifosx.19.07 .
 ```
-4. Build the Web Server Nginx image
 
-```bash
-$ docker build -t com.mx.fintecheando.nginx.mifosx.19.07 .
-```
-
-5. Run the Docker images using Compose
+4. Run the Docker images using Compose
 
 ```bash
 $ docker-compose -f mifos-stack-DEV.yml up
 ```
 
-6. Verify the running containers
+5. Verify the running containers
 
 ```bash
 $ docker ps | grep mifosx.19.07
 ```
 
-7. Login to Mifos using the Web UI with these credentials:
+6. Login to Mifos using the Web UI with these credentials:
 
 username: mifos
 password: password
@@ -51,7 +46,7 @@ password: password
 https://localhost:8443/community-app/#/ (secure web access, but this is a self signed certificate and you will have a warning in your web explorer, just ignore it and continue)
 
 
-8. As note if you have any issue with the volumes and entry points remove the volumes (be careful, with this we are removing all of them, because it is running in our local DEV, don't do this in Production)
+7. As note if you have any issue with the volumes and entry points remove the volumes (be careful, with this we are removing all of them, because it is running in our local DEV, don't do this in Production)
 ```bash
 $ docker stop $(docker ps -a -q)
 $ docker rm $(docker ps -a -q)
