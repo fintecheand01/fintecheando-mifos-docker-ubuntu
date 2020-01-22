@@ -10,15 +10,7 @@ ADD ./community-app/ /usr/local/tomcat/webapps/community-app
 
 ADD ./test/ /usr/local/tomcat/webapps/test/ 
 
-RUN mkdir -p /app .mifosx /root/.mifosx \
-	&& cd /app \
-	&& wget http://tenet.dl.sourceforge.net/project/mifos/Mifos%20X/mifosplatform-18.03.01.RELEASE.zip \
-	&& unzip mifosplatform-18.03.01.RELEASE.zip \
-	&& mv fineractplatform-18.03.01.RELEASE/pentahoReports /root/.mifosx \
-	&& wget http://central.maven.org/maven2/org/drizzle/jdbc/drizzle-jdbc/1.4/drizzle-jdbc-1.4.jar \
-	&& mv drizzle-jdbc-1.4.jar /usr/local/tomcat/lib \
-	&& cd / \
-	&& rm -rf /app
+RUN mkdir -p /app .mifosx /root/.mifosx 
 
 ADD ./entrypoint.sh /entrypoint.sh
 
